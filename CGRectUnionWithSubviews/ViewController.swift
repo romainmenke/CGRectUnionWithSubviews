@@ -15,25 +15,32 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let viewOne = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-        viewOne.alpha = 0.6
-        viewOne.backgroundColor = UIColor.yellowColor()
+        
+        
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        var viewOne = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        viewOne.alpha = 1.0
+        viewOne.backgroundColor = UIColor.blackColor()
         
         let viewTwo = UIView(frame: CGRect(x: -10, y: -10, width: 40, height: 40))
-        viewTwo.alpha = 0.6
-        viewTwo.backgroundColor = UIColor.redColor()
+        viewTwo.alpha = 0.5
+        viewTwo.backgroundColor = UIColor.blueColor()
         
         let viewThree = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
-        viewThree.alpha = 0.6
+        viewThree.alpha = 0.5
         viewThree.backgroundColor = UIColor.greenColor()
         
         let viewFour = UIView(frame: CGRect(x: 100, y: 0, width: 40, height: 40))
-        viewFour.alpha = 0.6
-        viewFour.backgroundColor = UIColor.brownColor()
+        viewFour.alpha = 0.5
+        viewFour.backgroundColor = UIColor.blueColor()
         
         let viewFive = UIView(frame: CGRect(x: 10, y: 10, width: 40, height: 40))
-        viewFive.alpha = 0.6
-        viewFive.backgroundColor = UIColor.purpleColor()
+        viewFive.alpha = 0.5
+        viewFive.backgroundColor = UIColor.greenColor()
         
         masterView.addSubview(viewOne)
         
@@ -45,12 +52,16 @@ class ViewController: UIViewController {
         
         let unionView = UIView(frame: viewOne.cgrectUnionWithSubviews())
         unionView.alpha = 0.2
-        unionView.backgroundColor = UIColor.blueColor()
+        unionView.backgroundColor = UIColor.blackColor()
         
         masterView.addSubview(unionView)
         
+        print(viewOne.frame)
+        print(unionView.frame)
         
-        // Do any additional setup after loading the view, typically from a nib.
+        viewOne.sizeToFit() // this does nothing for some reason
+        
+        print(viewOne.frame)
     }
 
     override func didReceiveMemoryWarning() {
