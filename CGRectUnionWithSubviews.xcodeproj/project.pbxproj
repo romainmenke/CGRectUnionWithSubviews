@@ -14,6 +14,7 @@
 		05E9E2371BADEEA700876A48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05E9E2351BADEEA700876A48 /* LaunchScreen.storyboard */; };
 		05E9E2421BADEEA700876A48 /* CGRectUnionWithSubviewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9E2411BADEEA700876A48 /* CGRectUnionWithSubviewsTests.swift */; };
 		05E9E24D1BADEEA700876A48 /* CGRectUnionWithSubviewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9E24C1BADEEA700876A48 /* CGRectUnionWithSubviewsUITests.swift */; };
+		05E9E25B1BADF14D00876A48 /* CGRectUnionWithSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E9E25A1BADF14D00876A48 /* CGRectUnionWithSubviews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		05E9E2481BADEEA700876A48 /* CGRectUnionWithSubviewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CGRectUnionWithSubviewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05E9E24C1BADEEA700876A48 /* CGRectUnionWithSubviewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectUnionWithSubviewsUITests.swift; sourceTree = "<group>"; };
 		05E9E24E1BADEEA700876A48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05E9E25A1BADF14D00876A48 /* CGRectUnionWithSubviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectUnionWithSubviews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				05E9E2331BADEEA700876A48 /* Assets.xcassets */,
 				05E9E2351BADEEA700876A48 /* LaunchScreen.storyboard */,
 				05E9E2381BADEEA700876A48 /* Info.plist */,
+				05E9E25A1BADF14D00876A48 /* CGRectUnionWithSubviews.swift */,
 			);
 			path = CGRectUnionWithSubviews;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 		05E9E2211BADEEA700876A48 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "menke dev";
 				TargetAttributes = {
@@ -257,6 +261,7 @@
 			files = (
 				05E9E22F1BADEEA700876A48 /* ViewController.swift in Sources */,
 				05E9E22D1BADEEA700876A48 /* AppDelegate.swift in Sources */,
+				05E9E25B1BADF14D00876A48 /* CGRectUnionWithSubviews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +488,7 @@
 				05E9E2531BADEEA700876A48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		05E9E2541BADEEA700876A48 /* Build configuration list for PBXNativeTarget "CGRectUnionWithSubviewsTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +497,7 @@
 				05E9E2561BADEEA700876A48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		05E9E2571BADEEA700876A48 /* Build configuration list for PBXNativeTarget "CGRectUnionWithSubviewsUITests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +506,7 @@
 				05E9E2591BADEEA700876A48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
