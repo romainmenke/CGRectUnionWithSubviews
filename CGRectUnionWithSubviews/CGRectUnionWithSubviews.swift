@@ -8,28 +8,29 @@
 
 import UIKit
 
-extension UIView {
+extension SubViewsRectUnion {
     
     func cgrectUnionWithSubviews() -> CGRect {
-        
-        return cgrectUnionWithNestedSubViews(self)
-        
+        return cgrectUnionWithNestedSubViews(subviews, frame: frame)
     }
     
-    private func cgrectUnionWithNestedSubViews(view: UIView) -> CGRect {
+    private func cgrectUnionWithNestedSubViews(subviews: [UIView], frame: CGRect) -> CGRect {
         
-        var rectUnion : CGRect = view.frame
+        var rectUnion : CGRect = frame
         
-        guard view.subviews.count > 0 else {
-            return rectUnion
-        }
-        
-        for subview in view.subviews {
-            rectUnion = CGRectUnion(rectUnion, subview.frame)
-            rectUnion = CGRectUnion(rectUnion, cgrectUnionWithNestedSubViews(subview))
-            
+        for subview in subviews {
+            rectUnion = CGRectUnion(rectUnion, cgrectUnionWithNestedSubViews(subview.subviews, frame: subview.frame))
         }
         return rectUnion
     }
+}
+
+protocol SubViewsRectUnion {
+    var frame : CGRect { get }
+    var subviews : [UIView] { get }
+}
+
+extension UIView : SubViewsRectUnion {
+    
     
 }

@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         
-        var viewOne = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        let viewOne = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         viewOne.alpha = 1.0
         viewOne.backgroundColor = UIColor.blackColor()
         
@@ -58,9 +58,7 @@ class ViewController: UIViewController {
         
         print(viewOne.frame)
         print(unionView.frame)
-        
-        viewOne.sizeToFit() // this does nothing for some reason
-        
+        viewOne.sizeToFit() // this does nothing for some reason, one would think it would try to resize viewOne to so it encloses it's subviews.
         print(viewOne.frame)
     }
 
