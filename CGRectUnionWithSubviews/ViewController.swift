@@ -22,24 +22,24 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         
-        let viewOne = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        var viewOne = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         viewOne.alpha = 1.0
         viewOne.backgroundColor = UIColor.blackColor()
         
         let viewTwo = UIView(frame: CGRect(x: -10, y: -10, width: 40, height: 40))
-        viewTwo.alpha = 0.5
-        viewTwo.backgroundColor = UIColor.blueColor()
+        viewTwo.alpha = 0.7
+        viewTwo.backgroundColor = UIColor.redColor()
         
         let viewThree = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
-        viewThree.alpha = 0.5
+        viewThree.alpha = 0.7
         viewThree.backgroundColor = UIColor.greenColor()
         
         let viewFour = UIView(frame: CGRect(x: 100, y: 0, width: 40, height: 40))
-        viewFour.alpha = 0.5
-        viewFour.backgroundColor = UIColor.blueColor()
+        viewFour.alpha = 0.7
+        viewFour.backgroundColor = UIColor.redColor()
         
         let viewFive = UIView(frame: CGRect(x: 10, y: 10, width: 40, height: 40))
-        viewFive.alpha = 0.5
+        viewFive.alpha = 1.0
         viewFive.backgroundColor = UIColor.greenColor()
         
         masterView.addSubview(viewOne)
@@ -50,16 +50,17 @@ class ViewController: UIViewController {
         viewTwo.addSubview(viewFour)
         viewFour.addSubview(viewFive)
         
-        let unionView = UIView(frame: viewOne.cgrectUnionWithSubviews())
+        
+        // WHERE THE STUFF IS HAPPENING
+        
+        // viewOne.setCGRectUnionWithSubviews() setter
+        
+        let unionView = UIView(frame: viewOne.getCGRectUnionWithSubviews()) // getter
         unionView.alpha = 0.2
         unionView.backgroundColor = UIColor.blackColor()
         
         masterView.addSubview(unionView)
         
-        print(viewOne.frame)
-        print(unionView.frame)
-        viewOne.sizeToFit() // this does nothing for some reason, one would think it would try to resize viewOne to so it encloses it's subviews.
-        print(viewOne.frame)
     }
 
     override func didReceiveMemoryWarning() {

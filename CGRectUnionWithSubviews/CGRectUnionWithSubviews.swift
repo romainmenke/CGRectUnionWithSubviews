@@ -10,23 +10,49 @@ import UIKit
 
 extension SubViewsRectUnion {
     
-    func cgrectUnionWithSubviews() -> CGRect {
-        return cgrectUnionWithNestedSubViews(subviews, frame: frame)
+    mutating func setCGRectUnionWithSubviews() {
+        frame = setCGRectUnionWithNestedSubViews(subviews, frame: frame)
+        fixPositionOfSubViews(subviews, frame: frame)
+        
     }
     
-    private func cgrectUnionWithNestedSubViews(subviews: [UIView], frame: CGRect) -> CGRect {
+    func getCGRectUnionWithSubviews() -> CGRect {
+        return getCGRectUnionWithNestedSubViews(subviews, frame: frame)
+    }
+    
+    private func getCGRectUnionWithNestedSubViews(subviews: [UIView], frame frame_I: CGRect) -> CGRect {
         
-        var rectUnion : CGRect = frame
+        var rectUnion : CGRect = frame_I
         
         for subview in subviews {
-            rectUnion = CGRectUnion(rectUnion, cgrectUnionWithNestedSubViews(subview.subviews, frame: subview.frame))
+            rectUnion = CGRectUnion(rectUnion, getCGRectUnionWithNestedSubViews(subview.subviews, frame: subview.frame))
         }
         return rectUnion
     }
+    
+    private func setCGRectUnionWithNestedSubViews(subviews: [UIView], frame frame_I: CGRect) -> CGRect {
+        
+        var rectUnion : CGRect = frame_I
+        
+        for subview in subviews {
+            rectUnion = CGRectUnion(rectUnion, getCGRectUnionWithNestedSubViews(subview.subviews, frame: subview.frame))
+        }
+        return rectUnion
+    }
+    
+    private func fixPositionOfSubViews(subviews: [UIView], frame frame_I: CGRect) {
+        
+        let fix : CGPoint = frame_I.origin
+        
+        for subview in subviews {
+            subview.frame = CGRectOffset(subview.frame, -fix.x, -fix.y)
+        }
+    }
+    
 }
 
 protocol SubViewsRectUnion {
-    var frame : CGRect { get }
+    var frame : CGRect { get set }
     var subviews : [UIView] { get }
 }
 
