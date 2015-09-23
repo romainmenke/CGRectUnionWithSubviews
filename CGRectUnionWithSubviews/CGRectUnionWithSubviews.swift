@@ -11,7 +11,7 @@ import UIKit
 extension SubviewsCGRectUnion {
     
     mutating func setCGRectUnionWithSubviews() {
-        frame = setCGRectUnionWithNestedSubviews(subviews: subviews, frame: frame)
+        frame = getCGRectUnionWithNestedSubviews(subviews: subviews, frame: frame)
         fixPositionOfSubviews(subviews, frame: frame)
     }
     
@@ -22,27 +22,15 @@ extension SubviewsCGRectUnion {
     private func getCGRectUnionWithNestedSubviews(subviews subviews_I: [UIView], frame frame_I: CGRect) -> CGRect {
         
         var rectUnion : CGRect = frame_I
-        
         for subview in subviews_I {
             rectUnion = CGRectUnion(rectUnion, getCGRectUnionWithNestedSubviews(subviews: subview.subviews, frame: subview.frame))
         }
         return rectUnion
     }
-    
-    private func setCGRectUnionWithNestedSubviews(subviews subviews_I: [UIView], frame frame_I: CGRect) -> CGRect {
-        
-        var rectUnion : CGRect = frame_I
-        
-        for subview in subviews {
-            rectUnion = CGRectUnion(rectUnion, getCGRectUnionWithNestedSubviews(subviews: subview.subviews, frame: subview.frame))
-        }
-        return rectUnion
-    }
-    
+
     private func fixPositionOfSubviews(subviews: [UIView], frame frame_I: CGRect) {
         
         let frameFix : CGPoint = frame_I.origin
-        
         for subview in subviews {
             subview.frame = CGRectOffset(subview.frame, -frameFix.x, -frameFix.y)
         }
@@ -55,6 +43,4 @@ protocol SubviewsCGRectUnion {
 }
 
 extension UIView : SubviewsCGRectUnion {
-    
-    
 }
